@@ -1,0 +1,53 @@
+/* App.css */
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .left-section, .right-section {
+    width: 45%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .left-section {
+    margin-right: 10px;
+  }
+  
+  .right-section {
+    margin-left: 10px;
+  }
+  
+  h1 {
+    font-size: 24px;
+  }
+  
+  textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  
+  input[type="file"] {
+    margin-top: 10px;
+  }
+  
+  .loading {
+    font-size: 16px;
+    color: #333;
+  }
+  
