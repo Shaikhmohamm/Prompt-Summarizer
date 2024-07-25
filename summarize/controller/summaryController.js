@@ -7,6 +7,25 @@ const fs = require('fs');
 let baseURL = process.env.baseURL
 const apiKey = process.env.apiKey
 
+// Function to create the model if it doesn't exist
+async function createModelIfNeeded(model) {
+  try {
+    const response = await axios.post(`${baseURL}/api/create`, {
+      model: model
+    }, {
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'Content-Type': 'application/json'
+      }
+    });
+    console.log(`Model ${model} created successfully.`);
+  } catch (error) {
+    console.error(`Error creating model ${model}:`, error.message);
+    throw new Error(`Failed to create model: ${error.message}`);
+  }
+}
+
+
 // Function to pull the model
 async function pullModel(model) {
   try {
@@ -47,6 +66,8 @@ const getSummary = asyncHandler(async (req, res) => {
   try {
     console.log('Request received for model:', model);
     console.log('Prompt:', prompt);
+
+    await createModelIfNeeded(model);
 
     // Ensure the model is pulled before generating summary
     await pullModel(model);
