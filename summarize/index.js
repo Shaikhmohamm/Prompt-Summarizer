@@ -17,6 +17,10 @@ app.use(cors());
 // Middleware to parse JSON bodies
 app.use(express.json());
 
+// just for testing purpose
+app.get('/', (req,res)=>{
+  res.json({message: "successfully landed to server"})
+})
 // Route to handle the POST request
 app.post('/api/generate', getSummary );
 
